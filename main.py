@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from collections import defaultdict
 import csv
 
 class SalesAnalyzer:
@@ -7,23 +8,43 @@ class SalesAnalyzer:
 
     def read_sales_data(self, file_path):
         '''Метод, который считывает данные о продажах из файла и добавляет их в список sales_data'''
-        pass
+        with open(file_path, mode='r') as file:
+            reader = csv.reader(file)
+            for row in reader:
+                product_name, quantity, price, date = row
+                sale = {
+                    'product_name': product_name,
+                    'quantity': int(quantity),
+                    'price': int(price),
+                    'date': date
+                }
+                self.sales_data.append(sale)
 
     def total_sales_per_product(self):
         '''Метод, который возвращает общую сумму продаж для каждого продукта'''
-        pass
+        total_sales = defaultdict(int)
+        for sale in self.sales_data:
+            total_sales[sale['product_name']] += sale['quantity'] * sale['price']
+        return dict(total_sales)
 
     def sales_over_time(self):
         '''Метод, который возвращает общую сумму продаж в разрезе дат'''
-        pass
+        total_sales = defaultdict(int)
+        for sale in self.sales_data:
+            total_sales[sale['date']] += sale['quantity'] * sale['price']
+        return dict(total_sales)
 
     def max_revenue_product(self):
         '''Метод для определения какой продукт принес наибольшую выручку'''
-        pass
+        total_sales = self.total_sales_per_product()
+        max_revenue_product = max(total_sales, key=total_sales.get)
+        return max_revenue_product
 
     def max_sales_date(self):
         '''Метод для вычисления в какой день была наибольшая сумма продаж'''
-        pass
+        total_sales = self.sales_over_time()
+        max_sales_date = max(total_sales, key=total_sales.get)
+        return max_sales_date
 
     def plot_total_sales_per_product(self):
         '''Метод для постстроения столбчатой диаграммы общей суммы продаж по каждому продукту'''
@@ -35,7 +56,7 @@ class SalesAnalyzer:
 
 
 analyzer = SalesAnalyzer()
-analyzer.read_sales_data('E:/python/Git_projects/python_task/sales_data.csv')
+analyzer.read_sales_data('E:/python/Git_projects/python_task_sales_analyzer/sales_data.csv')
 print("1. Продукт, который принес наибольшую выручку: ", analyzer.max_revenue_product())
 print("2. Дата, в которую была наибольшая сумма продаж: ", analyzer.max_sales_date())
 analyzer.plot_total_sales_per_product()
