@@ -10,7 +10,7 @@
 
 ## Входные данные
 
-Данные о продажах хранятся в файле [sales_data.csv](https://#) в формате: название продукта, количество, цена, дата.
+Данные о продажах хранятся в файле [sales_data.csv]([https://#](https://github.com/Lappa-EV/python_task_sales_analyzer/blob/master/sales_data.csv)) в формате: название продукта, количество, цена, дата.
 
 Пример входных данных:
 
@@ -21,7 +21,7 @@
 
 ## Решение
 
-Для решения поставленной задачи был создан файл [main.py](https://#),  который содержит класс `SalesAnalyzer`. В классе реализованы методы:
+Для решения поставленной задачи был создан файл [main.py](https://github.com/Lappa-EV/python_task_sales_analyzer/blob/master/main.py),  который содержит класс `SalesAnalyzer`. В классе реализованы методы:
 
 - `read_sales_data(self, file_path)` - считывает данные о продажах из файла и добавляет их в список `self.sales_data`.
 - `total_sales_per_product(self)` - вычисляет общую выручку по каждому продукту.
