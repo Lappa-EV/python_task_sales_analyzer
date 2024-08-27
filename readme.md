@@ -10,7 +10,7 @@
 
 ## Входные данные
 
-Данные о продажах хранятся в файле [sales_data.csv]([https://#](https://github.com/Lappa-EV/python_task_sales_analyzer/blob/master/sales_data.csv) в формате: название продукта, количество, цена, дата.
+Данные о продажах хранятся в файле [sales_data.csv](https://github.com/Lappa-EV/python_task_sales_analyzer/blob/master/sales_data.csv) в формате: название продукта, количество, цена, дата.
 
 Пример входных данных:
 
