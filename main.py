@@ -75,7 +75,7 @@ class SalesAnalyzer:
 
 
 analyzer = SalesAnalyzer()
-analyzer.read_sales_data('E:/python/Git_projects/python_task_sales_analyzer/sales_data.csv')
+analyzer.read_sales_data('https://github.com/Lappa-EV/python_task_sales_analyzer/blob/master/sales_data.csv')
 print("1. Продукт, который принес наибольшую выручку: ", analyzer.max_revenue_product())
 print("2. Дата, в которую была наибольшая сумма продаж: ", analyzer.max_sales_date())
 analyzer.plot_total_sales_per_product()
