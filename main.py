@@ -48,11 +48,30 @@ class SalesAnalyzer:
 
     def plot_total_sales_per_product(self):
         '''Метод для постстроения столбчатой диаграммы общей суммы продаж по каждому продукту'''
-        pass
+        total_sales = self.total_sales_per_product()
+        products = list(total_sales.keys())
+        sales = list(total_sales.values())
+        plt.bar(products, sales, width=0.3)
+        plt.xlabel('Продукт')
+        plt.ylabel('Объем продаж')
+        plt.title('График общей суммы продаж по каждому продукту')
+        plt.xticks(rotation=10)
+        plt.subplots_adjust(bottom=0.16)
+        plt.show()
 
     def plot_sales_over_time(self):
         '''Метод для построения графика общей суммы продаж по дням'''
-        pass
+        total_sales = self.sales_over_time()
+        dates = list(total_sales.keys())
+        sales = list(total_sales.values())
+        plt.plot(dates, sales, marker='o', color='purple')
+        plt.xlabel('Дата')
+        plt.ylabel('Объем продаж')
+        plt.title('График общей суммы продаж по дням')
+        plt.xticks(rotation=10)
+        plt.subplots_adjust(bottom=0.16)
+        plt.grid(True)
+        plt.show()
 
 
 analyzer = SalesAnalyzer()
